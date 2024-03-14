@@ -1,6 +1,6 @@
 import PageContent from '../components/PageContent';
 
-import { removeToken } from '../lib/misc/local-store';
+import { removeToken } from '../lib/misc/auth';
 
 export default function Signout() {
   removeToken();

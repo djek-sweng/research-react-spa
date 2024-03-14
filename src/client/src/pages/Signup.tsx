@@ -1,25 +1,24 @@
-import { useMutation } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 
 import PageContent from './../components/PageContent';
 import SignupForm from '../components/SignupForm';
-import { signup } from './../lib/api/http-client';
-import { SignupDto, TokenDto } from '../lib/api/dtos';
-import { setToken } from '../lib/misc/local-store';
+import ErrorBlock from '../components/ErrorBlock';
+
+import { useSignup } from '../lib/api/query-client';
 
 export default function Signup() {
-  const { mutate, isError, error } = useMutation({
-    mutationFn: signup,
-    onSuccess: (token) => handleSucces(token),
-  });
+  const navigate = useNavigate();
 
-  const handleSubmit = (dto: SignupDto) => mutate(dto);
+  const { mutate, isSuccess, isError, error } = useSignup();
 
-  const handleSucces = (token: TokenDto) => setToken(token);
+  if (isSuccess) {
+    navigate('/home');
+  }
 
   return (
     <PageContent title="Signup">
-      <SignupForm onSubmit={handleSubmit} />
-      {isError && <p>{error.message}</p>}
+      <SignupForm onSubmit={mutate} />
+      {isError && <ErrorBlock title={'Error'} message={error.message} />}
     </PageContent>
   );
 }

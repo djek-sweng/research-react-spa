@@ -9,13 +9,16 @@ import SignupPage from './pages/Signup';
 import SigninPage from './pages/Signin';
 import SignoutPage from './pages/Signout';
 
-import QueryClient from './lib/api/query-client';
+import queryClient from './lib/api/query-client';
+import rootLoader, { ROOT_LOADER_ID } from './lib/misc/root-loader';
 
-const Router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
     errorElement: <ErrorPage />,
+    id: ROOT_LOADER_ID,
+    loader: rootLoader,
     children: [
       { index: true, element: <HomePage /> },
       { path: 'home', element: <HomePage /> },
@@ -28,8 +31,8 @@ const Router = createBrowserRouter([
 
 export default function App() {
   return (
-    <QueryClientProvider client={QueryClient}>
-      <RouterProvider router={Router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
     </QueryClientProvider>
   );
 }

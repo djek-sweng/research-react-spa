@@ -1,7 +1,7 @@
 import { QueryClient, useMutation } from '@tanstack/react-query';
 
 import { signup, signin } from './http-client';
-import { setToken } from '../misc/local-store';
+import { setToken } from '../misc/auth';
 
 const queryClient = new QueryClient();
 

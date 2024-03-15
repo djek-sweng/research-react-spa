@@ -1,14 +1,16 @@
 import { useRouteLoaderData } from 'react-router-dom';
 
-import { isAuth } from './auth';
+import { isAuth, getTokenExpiration } from './auth';
 
 interface LoaderData {
   isAuth: boolean;
+  tokenExpiration: number;
 }
 
 export default function loader() {
   return {
     isAuth: isAuth(),
+    tokenExpiration: getTokenExpiration(),
   };
 }
 

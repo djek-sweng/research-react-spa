@@ -5,13 +5,15 @@ import PageContent from './../components/PageContent';
 import ErrorBlock from '../components/ErrorBlock';
 
 import { useSignin } from '../lib/api/query-client';
+import { setToken } from '../lib/misc/auth';
 
 export default function Signin() {
   const navigate = useNavigate();
 
-  const { mutate, isSuccess, isError, error } = useSignin();
+  const { mutate, data: token, isSuccess, isError, error } = useSignin();
 
-  if (isSuccess) {
+  if (isSuccess && token) {
+    setToken(token);
     navigate('/home');
   }
 

@@ -4,7 +4,10 @@ import NoteForm from '../components/NoteForm';
 import PageContent from './../components/PageContent';
 import ErrorBlock from '../components/ErrorBlock';
 
-import { useCreateNote } from '../lib/api/query-client';
+import queryClient, {
+  QUERY_KEY_NOTES,
+  useCreateNote,
+} from '../lib/api/query-client';
 
 export default function NewNote() {
   const navigate = useNavigate();
@@ -12,6 +15,7 @@ export default function NewNote() {
   const { mutate, isSuccess, isError, error } = useCreateNote();
 
   if (isSuccess) {
+    queryClient.invalidateQueries({ queryKey: QUERY_KEY_NOTES });
     navigate('/notes');
   }
 

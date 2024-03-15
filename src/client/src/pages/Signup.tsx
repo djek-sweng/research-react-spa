@@ -5,13 +5,15 @@ import SignupForm from '../components/SignupForm';
 import ErrorBlock from '../components/ErrorBlock';
 
 import { useSignup } from '../lib/api/query-client';
+import { setToken } from '../lib/misc/auth';
 
 export default function Signup() {
   const navigate = useNavigate();
 
-  const { mutate, isSuccess, isError, error } = useSignup();
+  const { mutate, data: token, isSuccess, isError, error } = useSignup();
 
-  if (isSuccess) {
+  if (isSuccess && token) {
+    setToken(token);
     navigate('/home');
   }
 

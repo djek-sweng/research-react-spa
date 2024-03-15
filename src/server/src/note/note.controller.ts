@@ -51,7 +51,6 @@ export class NoteController {
   }
 
   @Delete(':noteId')
-  @HttpCode(HttpStatus.NO_CONTENT)
   deleteNote(
     @ReqUser('id') userId: number,
     @Param('noteId', ParseIntPipe) noteId: number,

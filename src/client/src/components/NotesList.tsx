@@ -1,3 +1,4 @@
+import NotesListItem from './NotesListItem';
 import { Note } from '../lib/api/dtos';
 
 import styles from './NotesList.module.css';
@@ -10,7 +11,7 @@ const NotesList: React.FC<Props> = ({ notes }) => {
   return (
     <ul className={styles.list}>
       {notes.map((note) => (
-        <li key={note.id}>{note.title}</li>
+        <NotesListItem key={note.id} note={note} />
       ))}
     </ul>
   );

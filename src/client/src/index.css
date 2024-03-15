@@ -48,14 +48,16 @@ a:hover {
 }
 
 button,
-input {
+input,
+textarea {
   font-family: inherit;
   font-size: inherit;
   border: var(--border);
 }
 
 button:hover,
-input:hover {
+input:hover,
+textarea:hover {
   border-color: var(--active-color);
 }
 

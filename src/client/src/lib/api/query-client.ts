@@ -1,6 +1,12 @@
 import { QueryClient, useMutation, useQuery } from '@tanstack/react-query';
 
-import { signup, signin, loadNotes, createNote } from './http-client';
+import {
+  signup,
+  signin,
+  loadNotes,
+  loadNoteById,
+  createNote,
+} from './http-client';
 import { setToken } from '../misc/auth';
 
 const QUERY_KEY_NOTES = ['notes'];
@@ -28,8 +34,17 @@ export function useSignin() {
 
 export function useLoadNotes() {
   return useQuery({
-    queryFn: loadNotes,
+    queryFn: ({ signal }) => loadNotes(signal),
     queryKey: QUERY_KEY_NOTES,
+    staleTime: STALE_TIME,
+    gcTime: GC_TIME,
+  });
+}
+
+export function useLoadNoteById(id: string) {
+  return useQuery({
+    queryFn: ({ signal }) => loadNoteById(id, signal),
+    queryKey: ['notes', id],
     staleTime: STALE_TIME,
     gcTime: GC_TIME,
   });

@@ -1,0 +1,46 @@
+.noteDetails > header {
+  width: 40rem;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.noteDetails > header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.noteDetails > header button,
+.noteDetails > header a {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #b6cad5;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.25rem;
+}
+
+.noteDetails > article {
+  width: 40rem;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  background-color: #343b3f;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.noteDetails > article h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.noteDetails > article p {
+  font-size: 1.25rem;
+}

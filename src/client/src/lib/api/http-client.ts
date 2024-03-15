@@ -36,12 +36,31 @@ export async function signin(dto: SigninDto): Promise<TokenDto> {
   return data;
 }
 
-export async function loadNotes() {
+export async function loadNotes(signal: AbortSignal) {
   const response = await fetch(`${_BASE_URL}/notes`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: getBearer(),
     },
+    signal,
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new HttpClientError(response, `Load notes failed! ${data.message}`);
+  }
+
+  return data;
+}
+
+export async function loadNoteById(id: string, signal: AbortSignal) {
+  const response = await fetch(`${_BASE_URL}/notes/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: getBearer(),
+    },
+    signal,
   });
 
   const data = await response.json();

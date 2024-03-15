@@ -39,7 +39,6 @@ export async function signin(dto: SigninDto): Promise<TokenDto> {
 export async function loadNotes(signal: AbortSignal) {
   const response = await fetch(`${_BASE_URL}/notes`, {
     headers: {
-      'Content-Type': 'application/json',
       Authorization: getBearer(),
     },
     signal,
@@ -60,7 +59,6 @@ export async function loadNoteById(
 ): Promise<NoteDto> {
   const response = await fetch(`${_BASE_URL}/notes/${id}`, {
     headers: {
-      'Content-Type': 'application/json',
       Authorization: getBearer(),
     },
     signal,
@@ -98,7 +96,6 @@ export async function deleteNoteById(id: string): Promise<NoteDto> {
   const response = await fetch(`${_BASE_URL}/notes/${id}`, {
     method: 'DELETE',
     headers: {
-      'Content-Type': 'application/json',
       Authorization: getBearer(),
     },
   });

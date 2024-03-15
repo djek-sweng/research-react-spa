@@ -36,12 +36,11 @@ export async function signin(dto: SigninDto): Promise<TokenDto> {
   return data;
 }
 
-export async function loadNotes(signal: AbortSignal) {
+export async function loadNotes() {
   const response = await fetch(`${_BASE_URL}/notes`, {
     headers: {
       Authorization: getBearer(),
     },
-    signal,
   });
 
   const data = await response.json();
@@ -53,15 +52,11 @@ export async function loadNotes(signal: AbortSignal) {
   return data;
 }
 
-export async function loadNoteById(
-  id: string,
-  signal: AbortSignal,
-): Promise<NoteDto> {
+export async function loadNoteById(id: string): Promise<NoteDto> {
   const response = await fetch(`${_BASE_URL}/notes/${id}`, {
     headers: {
       Authorization: getBearer(),
     },
-    signal,
   });
 
   const data = await response.json();

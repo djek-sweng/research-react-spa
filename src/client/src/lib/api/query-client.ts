@@ -35,7 +35,7 @@ export function useSignin() {
 
 export function useLoadNotes() {
   return useQuery({
-    queryFn: ({ signal }) => loadNotes(signal),
+    queryFn: () => loadNotes(),
     queryKey: QUERY_KEY_NOTES,
     staleTime: STALE_TIME,
     gcTime: GC_TIME,
@@ -44,7 +44,7 @@ export function useLoadNotes() {
 
 export function useLoadNoteById(id: string) {
   return useQuery({
-    queryFn: ({ signal }) => loadNoteById(id, signal),
+    queryFn: () => loadNoteById(id),
     queryKey: ['notes', id],
     staleTime: STALE_TIME,
     gcTime: GC_TIME,
@@ -59,10 +59,10 @@ export function useCreateNote() {
   });
 }
 
-export function useDeleteNoteById() {
+export function useDeleteNoteById(id: string) {
   return useMutation({
-    mutationFn: deleteNoteById,
-    onSuccess: () =>
-      queryClient.invalidateQueries({ queryKey: QUERY_KEY_NOTES }),
+    mutationFn: () => deleteNoteById(id),
+    // onSuccess: () =>
+    //   queryClient.invalidateQueries({ queryKey: QUERY_KEY_NOTES }),
   });
 }

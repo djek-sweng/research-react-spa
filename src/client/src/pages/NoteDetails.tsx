@@ -15,12 +15,15 @@ export default function NoteDetails() {
 
   const { data: note, isLoading, error, isError } = useLoadNoteById(id);
 
-  const { mutate } = useDeleteNoteById();
+  const { mutate, isSuccess } = useDeleteNoteById(id);
 
   const handleDelete = () => {
-    mutate(id);
-    navigate('/notes');
+    mutate();
   };
+
+  if (isSuccess) {
+    navigate('/notes');
+  }
 
   let content = <p>Please create notes.</p>;
 

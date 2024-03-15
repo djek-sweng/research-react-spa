@@ -1,6 +1,7 @@
 import PageContent from '../components/PageContent';
 import NotesList from '../components/NotesList';
 import ErrorBlock from '../components/ErrorBlock';
+import LoadingIndicator from '../components/LoadingIndicator';
 import { useLoadNotes } from '../lib/api/query-client';
 
 function NotesPage() {
@@ -9,7 +10,7 @@ function NotesPage() {
   let content = <p>Please create notes.</p>;
 
   if (isLoading) {
-    content = <p>Loading...</p>;
+    content = <LoadingIndicator />;
   }
 
   if (isError) {

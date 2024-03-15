@@ -28,4 +28,6 @@ export function redirectAuthGuard() {
   if (!isAuth()) {
     return redirect('/signin');
   }
+
+  return null;
 }

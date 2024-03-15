@@ -3,7 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import PageContent from './../components/PageContent';
 import ErrorBlock from '../components/ErrorBlock';
 import LoadingIndicator from '../components/LoadingIndicator';
-import { useLoadNoteById, useDeleteNoteById } from '../lib/api/query-client';
+import queryClient, {
+  QUERY_KEY_NOTES,
+  useLoadNoteById,
+  useDeleteNoteById,
+} from '../lib/api/query-client';
 
 import styles from './NoteDetails.module.css';
 import { useParamsId } from '../lib/hooks/use-params';
@@ -15,13 +19,14 @@ export default function NoteDetails() {
 
   const { data: note, isLoading, error, isError } = useLoadNoteById(id);
 
-  const { mutate, isSuccess } = useDeleteNoteById(id);
+  const { mutate, isSuccess } = useDeleteNoteById();
 
   const handleDelete = () => {
-    mutate();
+    mutate(id);
   };
 
   if (isSuccess) {
+    queryClient.invalidateQueries({ queryKey: QUERY_KEY_NOTES });
     navigate('/notes');
   }
 

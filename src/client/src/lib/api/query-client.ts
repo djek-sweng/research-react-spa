@@ -10,14 +10,14 @@ import {
 } from './http-client';
 import { setToken } from '../misc/auth';
 
-const QUERY_KEY_NOTES = ['notes'];
-
 const STALE_TIME = 5_000;
 const GC_TIME = 2 * STALE_TIME;
 
 const queryClient = new QueryClient();
 
 export default queryClient;
+
+export const QUERY_KEY_NOTES = ['notes'];
 
 export function useSignup() {
   return useMutation({
@@ -59,9 +59,9 @@ export function useCreateNote() {
   });
 }
 
-export function useDeleteNoteById(id: string) {
+export function useDeleteNoteById() {
   return useMutation({
-    mutationFn: () => deleteNoteById(id),
+    mutationFn: deleteNoteById,
     // onSuccess: () =>
     //   queryClient.invalidateQueries({ queryKey: QUERY_KEY_NOTES }),
   });

@@ -58,3 +58,7 @@ button:hover,
 input:hover {
   border-color: var(--active-color);
 }
+
+ul {
+  list-style-type: none;
+}

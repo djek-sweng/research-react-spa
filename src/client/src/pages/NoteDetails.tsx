@@ -1,19 +1,26 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import PageContent from './../components/PageContent';
 import ErrorBlock from '../components/ErrorBlock';
 import LoadingIndicator from '../components/LoadingIndicator';
-import { useLoadNoteById } from '../lib/api/query-client';
+import { useLoadNoteById, useDeleteNoteById } from '../lib/api/query-client';
 
 import styles from './NoteDetails.module.css';
 import { useParamsId } from '../lib/hooks/use-params';
 
 export default function NoteDetails() {
+  const navigate = useNavigate();
+
   const id = useParamsId();
 
   const { data: note, isLoading, error, isError } = useLoadNoteById(id);
 
-  const handleStartDelete = () => {};
+  const { mutate } = useDeleteNoteById();
+
+  const handleDelete = () => {
+    mutate(id);
+    navigate('/notes');
+  };
 
   let content = <p>Please create notes.</p>;
 
@@ -29,17 +36,24 @@ export default function NoteDetails() {
     content = (
       <section className={styles.noteDetails}>
         <header>
-          <h1>{note.title}</h1>
           <nav>
-            <button onClick={handleStartDelete}>Delete</button>
+            <button onClick={handleDelete}>Delete</button>
             <Link to="edit">Edit</Link>
           </nav>
         </header>
         <article>
-          <h2>Tag</h2>
-          <p className={styles.noteDetailsTag}>{note.tag}</p>
-          <h2>Content</h2>
-          <p className={styles.noteDetailsContent}>{note.content}</p>
+          <div className={styles.noteDetailsGroup}>
+            <h1>Title</h1>
+            <p>{note.title}</p>
+          </div>
+          <div className={styles.noteDetailsGroup}>
+            <h1>Tag</h1>
+            <p>{note.tag}</p>
+          </div>
+          <div className={styles.noteDetailsGroup}>
+            <h1>Content</h1>
+            <p>{note.content}</p>
+          </div>
         </article>
       </section>
     );

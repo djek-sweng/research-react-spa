@@ -1,5 +1,5 @@
 import HttpClientError from './http-client-error';
-import { SignupDto, SigninDto, TokenDto, CreateNoteDto } from './dtos';
+import { SignupDto, SigninDto, TokenDto, CreateNoteDto, NoteDto } from './dtos';
 import { getBearer } from '../misc/auth';
 
 const _BASE_URL = 'http://localhost:5000';
@@ -54,7 +54,10 @@ export async function loadNotes(signal: AbortSignal) {
   return data;
 }
 
-export async function loadNoteById(id: string, signal: AbortSignal) {
+export async function loadNoteById(
+  id: string,
+  signal: AbortSignal,
+): Promise<NoteDto> {
   const response = await fetch(`${_BASE_URL}/notes/${id}`, {
     headers: {
       'Content-Type': 'application/json',
@@ -72,7 +75,7 @@ export async function loadNoteById(id: string, signal: AbortSignal) {
   return data;
 }
 
-export async function createNote(dto: CreateNoteDto) {
+export async function createNote(dto: CreateNoteDto): Promise<NoteDto> {
   const response = await fetch(`${_BASE_URL}/notes`, {
     method: 'POST',
     headers: {
@@ -86,6 +89,24 @@ export async function createNote(dto: CreateNoteDto) {
 
   if (!response.ok) {
     throw new HttpClientError(response, `Create note failed! ${data.message}`);
+  }
+
+  return data;
+}
+
+export async function deleteNoteById(id: string): Promise<NoteDto> {
+  const response = await fetch(`${_BASE_URL}/notes/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: getBearer(),
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new HttpClientError(response, `Delete note failed! ${data.message}`);
   }
 
   return data;

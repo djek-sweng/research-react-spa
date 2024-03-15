@@ -6,6 +6,7 @@ import {
   loadNotes,
   loadNoteById,
   createNote,
+  deleteNoteById,
 } from './http-client';
 import { setToken } from '../misc/auth';
 
@@ -53,6 +54,14 @@ export function useLoadNoteById(id: string) {
 export function useCreateNote() {
   return useMutation({
     mutationFn: createNote,
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: QUERY_KEY_NOTES }),
+  });
+}
+
+export function useDeleteNoteById() {
+  return useMutation({
+    mutationFn: deleteNoteById,
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: QUERY_KEY_NOTES }),
   });

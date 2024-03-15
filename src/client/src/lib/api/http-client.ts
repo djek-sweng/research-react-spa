@@ -1,5 +1,6 @@
 import HttpClientError from './http-client-error';
 import { SignupDto, SigninDto, TokenDto } from './dtos';
+import { getBearer } from '../misc/auth';
 
 const _BASE_URL = 'http://localhost:5000';
 
@@ -30,6 +31,23 @@ export async function signin(dto: SigninDto): Promise<TokenDto> {
 
   if (!response.ok) {
     throw new HttpClientError(response, `Signin failed! ${data.message}`);
+  }
+
+  return data;
+}
+
+export async function loadNotes() {
+  const response = await fetch(`${_BASE_URL}/notes`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: getBearer(),
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new HttpClientError(response, `Load notes failed! ${data.message}`);
   }
 
   return data;

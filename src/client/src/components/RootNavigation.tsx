@@ -14,6 +14,11 @@ const RootNavigation = () => {
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
+          {isAuth && (
+            <li>
+              <NavLink to="/notes">Notes</NavLink>
+            </li>
+          )}
         </ul>
         <ul className={styles.list}>
           {!isAuth && (

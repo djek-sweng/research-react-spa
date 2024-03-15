@@ -6,7 +6,7 @@ interface LoaderData {
   isAuth: boolean;
 }
 
-export default function loader(): LoaderData {
+export default function loader() {
   return {
     isAuth: isAuth(),
   };

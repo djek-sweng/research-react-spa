@@ -1,9 +1,12 @@
-export interface NoteDto {
-  id?: number;
+export interface CreateNoteDto {
   title: string;
   content: string;
   tag: string;
-  createdAt?: Date;
-  updatedAt?: Date;
-  userId?: number;
+}
+
+export interface NoteDto extends CreateNoteDto {
+  id: number;
+  userId: number;
+  createdAt: string;
+  updatedAt: string;
 }

@@ -1,13 +1,11 @@
 .noteDetails > header {
   width: 40rem;
-  margin: 2rem auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin: 0.5rem auto;
 }
 
 .noteDetails > header nav {
   display: flex;
+  justify-content: flex-end;
   gap: 1rem;
 }
 
@@ -17,7 +15,7 @@
   cursor: pointer;
   border: none;
   background-color: transparent;
-  color: #b6cad5;
+  color: inherit;
   border-radius: 4px;
   font-weight: bold;
   text-decoration: none;
@@ -26,21 +24,28 @@
 
 .noteDetails > article {
   width: 40rem;
-  margin: 2rem auto;
-  padding: 2rem 1rem;
+  margin: auto;
+  padding: 1.25rem;
   background-color: #343b3f;
   border-radius: 8px;
   overflow: hidden;
   text-align: left;
 }
 
-.noteDetails > article h2 {
-  font-size: 1rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+.noteDetailsGroup {
+  margin-bottom: 1rem;
 }
 
-.noteDetails > article p {
-  font-size: 1.25rem;
+.noteDetailsGroup:last-of-type {
+  margin-bottom: 0;
+}
+
+.noteDetailsGroup h1 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.noteDetailsGroup p {
+  font-size: 1rem;
 }

@@ -37,15 +37,20 @@ const NoteForm: React.FC<Props> = ({ onSubmit }) => {
     <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.formGroup}>
         <label htmlFor="title">Title</label>
-        <input type="text" id="title" placeholder="Your note title" />
-      </div>
-      <div className={styles.formGroup}>
-        <label htmlFor="content">Content</label>
-        <input type="text" id="content" placeholder="Your note content" />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Your note title"
+        />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="tag">Tag</label>
-        <input type="text" id="tag" placeholder="Your note tag" />
+        <input type="text" id="tag" name="tag" placeholder="Your note tag" />
+      </div>
+      <div className={styles.formGroup}>
+        <label htmlFor="content">Content</label>
+        <textarea id="content" name="content" placeholder="Your note content" />
       </div>
       <div className={styles.formGroup}>
         <button type="submit">Add</button>

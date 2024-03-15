@@ -39,21 +39,27 @@ const SignupForm: React.FC<Props> = ({ onSubmit }) => {
     <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.formGroup}>
         <label htmlFor="name">Name</label>
-        <input type="text" id="name" placeholder="Your name" />
+        <input type="text" id="name" name="name" placeholder="Your name" />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="email">Email</label>
-        <input type="email" id="email" placeholder="Your email" />
+        <input type="email" id="email" name="email" placeholder="Your email" />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="password">Password</label>
-        <input type="password" id="password" placeholder="Your password" />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Your password"
+        />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="confirmPassword">Confirm Password</label>
         <input
           type="password"
           id="confirmPassword"
+          name="confirmPassword"
           placeholder="Your confirm password"
         />
       </div>

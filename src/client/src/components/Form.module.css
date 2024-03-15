@@ -21,10 +21,15 @@
   align-self: flex-start;
 }
 
-.formGroup > input {
+.formGroup > input,
+.formGroup > textarea,
+.formGroup > button {
   padding: 0.25rem 0.1rem;
 }
 
-.formGroup > button {
-  padding: 0.25rem 0;
+.formGroup > textarea {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 10rem;
+  max-height: 10rem;
 }

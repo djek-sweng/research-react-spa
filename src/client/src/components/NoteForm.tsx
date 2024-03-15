@@ -1,4 +1,4 @@
-import { NoteDto } from '../lib/api/dtos';
+import { CreateNoteDto } from '../lib/api/dtos';
 
 import styles from './Form.module.css';
 
@@ -14,7 +14,7 @@ interface NoteFormElement extends HTMLFormElement {
 
 type NoteFormEvent = React.FormEvent<NoteFormElement>;
 
-type Props = { onSubmit: (dto: NoteDto) => void };
+type Props = { onSubmit: (dto: CreateNoteDto) => void };
 
 const NoteForm: React.FC<Props> = ({ onSubmit }) => {
   const handleSubmit = (event: NoteFormEvent) => {

@@ -1,5 +1,5 @@
 import HttpClientError from './http-client-error';
-import { SignupDto, SigninDto, TokenDto, NoteDto } from './dtos';
+import { SignupDto, SigninDto, TokenDto, CreateNoteDto } from './dtos';
 import { getBearer } from '../misc/auth';
 
 const _BASE_URL = 'http://localhost:5000';
@@ -53,7 +53,7 @@ export async function loadNotes() {
   return data;
 }
 
-export async function createNote(dto: NoteDto) {
+export async function createNote(dto: CreateNoteDto) {
   const response = await fetch(`${_BASE_URL}/notes`, {
     method: 'POST',
     headers: {

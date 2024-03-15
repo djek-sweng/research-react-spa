@@ -38,7 +38,7 @@ export function useLoadNotes() {
 export function useCreateNote() {
   return useMutation({
     mutationFn: createNote,
-    onSuccess: async () =>
-      await queryClient.invalidateQueries({ queryKey: QUERY_KEY_NOTES }),
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: QUERY_KEY_NOTES }),
   });
 }

@@ -1,9 +1,9 @@
-import { Note } from '../lib/api/dtos';
+import { NoteDto } from '../lib/api/dtos';
 
 import styles from './NotesListItem.module.css';
 
 type Props = {
-  note: Note;
+  note: NoteDto;
 };
 
 const NotesListItem: React.FC<Props> = ({ note }) => {

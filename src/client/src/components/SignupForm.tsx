@@ -1,8 +1,8 @@
 import { SignupDto } from '../lib/api/dtos';
 
-import styles from './SignupForm.module.css';
+import styles from './Form.module.css';
 
-interface SignupFormElements extends HTMLFormControlsCollection {
+interface SignupFormInputs extends HTMLFormControlsCollection {
   name: HTMLInputElement;
   email: HTMLInputElement;
   password: HTMLInputElement;
@@ -10,7 +10,7 @@ interface SignupFormElements extends HTMLFormControlsCollection {
 }
 
 interface SignupFormElement extends HTMLFormElement {
-  readonly elements: SignupFormElements;
+  readonly elements: SignupFormInputs;
 }
 
 type SignupFormEvent = React.FormEvent<SignupFormElement>;

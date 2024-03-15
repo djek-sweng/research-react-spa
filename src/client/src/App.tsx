@@ -10,6 +10,7 @@ import SignupPage from './pages/Signup';
 import SigninPage from './pages/Signin';
 import SignoutPage from './pages/Signout';
 import NotesPage from './pages/Notes';
+import NewNotePage from './pages/NewNote';
 
 import queryClient from './lib/api/query-client';
 import rootLoader, { ROOT_LOADER_ID } from './lib/misc/root-loader';
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             element: <NotesPage />,
             id: NOTES_LOADER_ID,
             loader: notesLoader,
+          },
+          {
+            path: 'new',
+            element: <NewNotePage />,
           },
         ],
       },

@@ -1,9 +1,9 @@
-export interface Note {
-  id: number;
+export interface NoteDto {
+  id?: number;
   title: string;
   content: string;
   tag: string;
-  createdAt: Date;
-  updatedAt: Date;
-  userId: number;
+  createdAt?: Date;
+  updatedAt?: Date;
+  userId?: number;
 }

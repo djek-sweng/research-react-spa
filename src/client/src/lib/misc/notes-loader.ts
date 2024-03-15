@@ -1,10 +1,10 @@
 import { useRouteLoaderData, defer } from 'react-router-dom';
 
-import { Note } from '../api/dtos';
+import { NoteDto } from '../api/dtos';
 import { loadNotes } from '../api/http-client';
 
 interface LoaderData {
-  notes: Note[];
+  notes: NoteDto[];
 }
 
 export default function loader() {

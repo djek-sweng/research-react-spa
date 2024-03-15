@@ -1,6 +1,6 @@
 import { QueryClient, useMutation } from '@tanstack/react-query';
 
-import { signup, signin } from './http-client';
+import { signup, signin, createNote } from './http-client';
 import { setToken } from '../misc/auth';
 
 const queryClient = new QueryClient();
@@ -18,5 +18,11 @@ export function useSignin() {
   return useMutation({
     mutationFn: signin,
     onSuccess: (token) => setToken(token),
+  });
+}
+
+export function useCreateNote() {
+  return useMutation({
+    mutationFn: createNote,
   });
 }

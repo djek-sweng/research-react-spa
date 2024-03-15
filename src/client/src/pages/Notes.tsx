@@ -1,26 +1,26 @@
-import { Suspense } from 'react';
-import { Await } from 'react-router-dom';
-
 import PageContent from '../components/PageContent';
 import NotesList from '../components/NotesList';
-import { useNotesLoaderData } from '../lib/misc/notes-loader';
+import ErrorBlock from '../components/ErrorBlock';
+import { useLoadNotes } from '../lib/api/query-client';
 
 function NotesPage() {
-  const { notes } = useNotesLoaderData();
+  const { data: notes, isLoading, error, isError } = useLoadNotes();
 
-  return (
-    <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
-      <Await resolve={notes}>
-        {(loadedNotes) => {
-          return (
-            <PageContent title="All Notes">
-              <NotesList notes={loadedNotes} />
-            </PageContent>
-          );
-        }}
-      </Await>
-    </Suspense>
-  );
+  let content = <p>Please create notes.</p>;
+
+  if (isLoading) {
+    content = <p>Loading...</p>;
+  }
+
+  if (isError) {
+    content = <ErrorBlock title="Load Notes Error" message={error.message} />;
+  }
+
+  if (notes) {
+    content = <NotesList notes={notes} />;
+  }
+
+  return <PageContent title="All Notes">{content}</PageContent>;
 }
 
 export default NotesPage;

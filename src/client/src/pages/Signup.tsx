@@ -18,7 +18,7 @@ export default function Signup() {
   return (
     <PageContent title="Signup">
       <SignupForm onSubmit={mutate} />
-      {isError && <ErrorBlock title={'Error'} message={error.message} />}
+      {isError && <ErrorBlock title="Signup Error" message={error.message} />}
     </PageContent>
   );
 }

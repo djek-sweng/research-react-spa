@@ -14,7 +14,6 @@ import NewNotePage from './pages/NewNote';
 
 import queryClient from './lib/api/query-client';
 import rootLoader, { ROOT_LOADER_ID } from './lib/misc/root-loader';
-import notesLoader, { NOTES_LOADER_ID } from './lib/misc/notes-loader';
 import { redirectAuthGuard } from './lib/misc/auth';
 
 const router = createBrowserRouter([
@@ -38,8 +37,6 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <NotesPage />,
-            id: NOTES_LOADER_ID,
-            loader: notesLoader,
           },
           {
             path: 'new',

@@ -24,7 +24,18 @@
   padding-left: 1.5rem;
 }
 
-.list li > a {
+.list li > a,
+.list li > form > button {
   font-size: 1.25rem;
   font-weight: bold;
+}
+
+.list li > form > button {
+  color: inherit;
+  background-color: inherit;
+  border: none;
+}
+
+.list li > form > button:hover {
+  color: var(--active-color);
 }

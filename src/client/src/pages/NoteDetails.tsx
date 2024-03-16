@@ -3,14 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import PageContent from './../components/PageContent';
 import ErrorBlock from '../components/ErrorBlock';
 import LoadingIndicator from '../components/LoadingIndicator';
-import queryClient, {
-  QUERY_KEY_NOTES,
+import { useParamsId } from '../lib/hooks/use-params';
+import {
+  invalidateLoadNotes,
   useLoadNoteById,
   useDeleteNoteById,
 } from '../lib/api/query-client';
 
 import styles from './NoteDetails.module.css';
-import { useParamsId } from '../lib/hooks/use-params';
 
 export default function NoteDetails() {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ export default function NoteDetails() {
   };
 
   if (isSuccess) {
-    queryClient.invalidateQueries({ queryKey: QUERY_KEY_NOTES });
+    invalidateLoadNotes();
     navigate('/notes');
   }
 

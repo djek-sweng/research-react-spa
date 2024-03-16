@@ -12,7 +12,9 @@ import {
 const STALE_TIME = 5_000;
 const GC_TIME = 2 * STALE_TIME;
 
-export default new QueryClient();
+const queryClient = new QueryClient();
+
+export default queryClient;
 
 export const QUERY_KEY_NOTES = ['notes'];
 
@@ -34,6 +36,13 @@ export function useLoadNotes() {
     queryKey: QUERY_KEY_NOTES,
     staleTime: STALE_TIME,
     gcTime: GC_TIME,
+  });
+}
+
+export function invalidateLoadNotes() {
+  return queryClient.invalidateQueries({
+    queryKey: QUERY_KEY_NOTES,
+    exact: true,
   });
 }
 

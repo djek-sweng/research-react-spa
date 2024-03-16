@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Form, NavLink } from 'react-router-dom';
 
 import { useRootLoaderData } from '../lib/misc/root-loader';
 
@@ -33,7 +33,9 @@ const RootNavigation = () => {
           )}
           {isAuth && (
             <li>
-              <NavLink to="/signout">Signout</NavLink>
+              <Form action="/signout" method="post">
+                <button>Signout</button>
+              </Form>
             </li>
           )}
         </ul>

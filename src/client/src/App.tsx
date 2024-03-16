@@ -8,7 +8,6 @@ import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
 import SignupPage from './pages/Signup';
 import SigninPage from './pages/Signin';
-import SignoutPage from './pages/Signout';
 import NotesPage from './pages/Notes';
 import NewNotePage from './pages/NewNote';
 import NoteDetailsPage from './pages/NoteDetails';
@@ -16,6 +15,7 @@ import EditNotePage from './pages/EditNote';
 
 import queryClient from './lib/api/query-client';
 import rootLoader, { ROOT_LOADER_ID } from './lib/misc/root-loader';
+import signoutAction from './lib/misc/signout-action';
 import { redirectAuthGuard } from './lib/misc/auth';
 
 const router = createBrowserRouter([
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       { path: 'home', element: <HomePage /> },
       { path: 'signup', element: <SignupPage /> },
       { path: 'signin', element: <SigninPage /> },
-      { path: 'signout', element: <SignoutPage /> },
+      { path: 'signout', action: signoutAction },
       {
         path: 'notes',
         element: <NotesLayout />,

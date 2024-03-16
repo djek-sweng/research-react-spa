@@ -54,10 +54,10 @@ export default function EditNote() {
     <PageContent title="Edit Note">
       {content}
       {isErrorLoad && (
-        <ErrorBlock title="Load Note Error" message={errorLoad.message} />
+        <ErrorBlock title="Notes Error" message={errorLoad.message} />
       )}
       {isErrorUpdate && (
-        <ErrorBlock title="Update Note Error" message={errorUpdate.message} />
+        <ErrorBlock title="Notes Error" message={errorUpdate.message} />
       )}
     </PageContent>
   );

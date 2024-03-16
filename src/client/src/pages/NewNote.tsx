@@ -18,7 +18,7 @@ export default function NewNote() {
   return (
     <PageContent title="New Note">
       <NoteForm onSubmit={createNote} />
-      {isError && <ErrorBlock title="New Note Error" message={error.message} />}
+      {isError && <ErrorBlock title="Notes Error" message={error.message} />}
     </PageContent>
   );
 }

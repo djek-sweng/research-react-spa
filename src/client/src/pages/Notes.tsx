@@ -14,7 +14,7 @@ function NotesPage() {
   }
 
   if (isError) {
-    content = <ErrorBlock title="Load Notes Error" message={error.message} />;
+    content = <ErrorBlock title="Notes Error" message={error.message} />;
   }
 
   if (notes) {

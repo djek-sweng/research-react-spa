@@ -17,12 +17,12 @@ export default function Root() {
       submit(null, { method: 'post', action: '/signout' });
     };
 
+    // console.log({ tokenExpiration });
+
     if (tokenExpiration < 1) {
       autoLogout();
       return;
     }
-
-    console.log({ tokenExpiration });
 
     const timer = setTimeout(() => {
       autoLogout();

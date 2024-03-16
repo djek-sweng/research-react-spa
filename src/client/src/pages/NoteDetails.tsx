@@ -37,7 +37,7 @@ export default function NoteDetails() {
   }
 
   if (isError) {
-    content = <ErrorBlock title="Load Note Error" message={error.message} />;
+    content = <ErrorBlock title="Notes Error" message={error.message} />;
   }
 
   if (note) {

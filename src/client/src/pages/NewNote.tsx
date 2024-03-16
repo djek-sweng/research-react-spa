@@ -8,7 +8,7 @@ import { useCreateNote, invalidateLoadNotes } from '../lib/api/query-client';
 export default function NewNote() {
   const navigate = useNavigate();
 
-  const { mutate, isSuccess, isError, error } = useCreateNote();
+  const { mutate: createNote, isSuccess, isError, error } = useCreateNote();
 
   if (isSuccess) {
     invalidateLoadNotes();
@@ -17,7 +17,7 @@ export default function NewNote() {
 
   return (
     <PageContent title="New Note">
-      <NoteForm onSubmit={mutate} />
+      <NoteForm onSubmit={createNote} />
       {isError && <ErrorBlock title="New Note Error" message={error.message} />}
     </PageContent>
   );

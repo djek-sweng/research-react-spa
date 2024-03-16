@@ -10,7 +10,13 @@ import { setToken } from '../lib/misc/auth';
 export default function Signup() {
   const navigate = useNavigate();
 
-  const { mutate, data: token, isSuccess, isError, error } = useSignup();
+  const {
+    mutate: signup,
+    isSuccess,
+    data: token,
+    isError,
+    error,
+  } = useSignup();
 
   if (isSuccess && token) {
     setToken(token);
@@ -19,7 +25,7 @@ export default function Signup() {
 
   return (
     <PageContent title="Signup">
-      <SignupForm onSubmit={mutate} />
+      <SignupForm onSubmit={signup} />
       {isError && <ErrorBlock title="Signup Error" message={error.message} />}
     </PageContent>
   );

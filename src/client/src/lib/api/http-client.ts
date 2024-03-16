@@ -93,14 +93,17 @@ export async function createNote(dto: MutateNoteDto): Promise<QueryNoteDto> {
   return data;
 }
 
-export async function updateNoteById(dto: MutateNoteDto): Promise<QueryNoteDto> {
-  const response = await fetch(`${_BASE_URL}/notes/${dto.id}`, {
+export async function updateNoteById(input: {
+  id: string;
+  dto: MutateNoteDto;
+}): Promise<QueryNoteDto> {
+  const response = await fetch(`${_BASE_URL}/notes/${input.id}`, {
     method: 'PUT',
     headers: {
       Authorization: getBearer(),
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(dto),
+    body: JSON.stringify(input.dto),
   });
 
   const data = await response.json();

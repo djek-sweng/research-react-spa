@@ -1,5 +1,4 @@
 export interface MutateNoteDto {
-  id: number | undefined;
   title: string;
   content: string;
   tag: string;

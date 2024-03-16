@@ -17,8 +17,6 @@ export default function EditNote() {
 
   const id = useParamsId();
 
-  console.log({ id });
-
   const {
     data: note,
     isLoading,
@@ -27,14 +25,14 @@ export default function EditNote() {
   } = useLoadNoteById(id);
 
   const {
-    mutate,
+    mutate: updateNote,
     isSuccess: isSuccessUpdate,
     isError: isErrorUpdate,
     error: errorUpdate,
   } = useUpdateNoteById();
 
   const handleUpdate = (dto: MutateNoteDto) => {
-    mutate(dto);
+    updateNote({ id, dto });
   };
 
   if (isSuccessUpdate) {

@@ -1,10 +1,10 @@
 import NotesListItem from './NotesListItem';
-import { NoteDto } from '../lib/api/dtos';
+import { QueryNoteDto } from '../lib/api/dtos';
 
 import styles from './NotesList.module.css';
 
 type Props = {
-  notes: NoteDto[];
+  notes: QueryNoteDto[];
 };
 
 const NotesList: React.FC<Props> = ({ notes }) => {

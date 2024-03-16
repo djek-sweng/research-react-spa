@@ -1,5 +1,11 @@
 import HttpClientError from './http-client-error';
-import { SignupDto, SigninDto, TokenDto, CreateNoteDto, NoteDto } from './dtos';
+import {
+  SignupDto,
+  SigninDto,
+  TokenDto,
+  MutateNoteDto,
+  QueryNoteDto,
+} from './dtos';
 import { getBearer } from '../misc/auth';
 
 const _BASE_URL = 'http://localhost:5000';
@@ -52,7 +58,7 @@ export async function loadNotes() {
   return data;
 }
 
-export async function loadNoteById(id: string): Promise<NoteDto> {
+export async function loadNoteById(id: string): Promise<QueryNoteDto> {
   const response = await fetch(`${_BASE_URL}/notes/${id}`, {
     headers: {
       Authorization: getBearer(),
@@ -68,12 +74,12 @@ export async function loadNoteById(id: string): Promise<NoteDto> {
   return data;
 }
 
-export async function createNote(dto: CreateNoteDto): Promise<NoteDto> {
+export async function createNote(dto: MutateNoteDto): Promise<QueryNoteDto> {
   const response = await fetch(`${_BASE_URL}/notes`, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
       Authorization: getBearer(),
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(dto),
   });
@@ -87,7 +93,26 @@ export async function createNote(dto: CreateNoteDto): Promise<NoteDto> {
   return data;
 }
 
-export async function deleteNoteById(id: string): Promise<NoteDto> {
+export async function updateNoteById(dto: MutateNoteDto): Promise<QueryNoteDto> {
+  const response = await fetch(`${_BASE_URL}/notes/${dto.id}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: getBearer(),
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(dto),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new HttpClientError(response, `Update note failed! ${data.message}`);
+  }
+
+  return data;
+}
+
+export async function deleteNoteById(id: string): Promise<QueryNoteDto> {
   const response = await fetch(`${_BASE_URL}/notes/${id}`, {
     method: 'DELETE',
     headers: {

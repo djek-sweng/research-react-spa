@@ -6,6 +6,7 @@ import {
   loadNotes,
   loadNoteById,
   createNote,
+  updateNoteById,
   deleteNoteById,
 } from './http-client';
 
@@ -58,6 +59,12 @@ export function useLoadNoteById(id: string) {
 export function useCreateNote() {
   return useMutation({
     mutationFn: createNote,
+  });
+}
+
+export function useUpdateNoteById() {
+  return useMutation({
+    mutationFn: updateNoteById,
   });
 }
 

@@ -1,10 +1,11 @@
-export interface CreateNoteDto {
+export interface MutateNoteDto {
+  id: number | undefined;
   title: string;
   content: string;
   tag: string;
 }
 
-export interface NoteDto extends CreateNoteDto {
+export interface QueryNoteDto extends MutateNoteDto {
   id: number;
   userId: number;
   createdAt: string;

@@ -1,4 +1,4 @@
-import { CreateNoteDto } from '../lib/api/dtos';
+import { QueryNoteDto, MutateNoteDto } from '../lib/api/dtos';
 
 import styles from './Form.module.css';
 
@@ -14,15 +14,16 @@ interface NoteFormElement extends HTMLFormElement {
 
 type NoteFormEvent = React.FormEvent<NoteFormElement>;
 
-type Props = { onSubmit: (dto: CreateNoteDto) => void };
+type Props = { note?: QueryNoteDto; onSubmit: (dto: MutateNoteDto) => void };
 
-const NoteForm: React.FC<Props> = ({ onSubmit }) => {
+const NoteForm: React.FC<Props> = ({ note, onSubmit }) => {
   const handleSubmit = (event: NoteFormEvent) => {
     event.preventDefault();
 
     const formElements = event.currentTarget.elements;
 
     const dto = {
+      id: note?.id,
       title: formElements.title.value,
       content: formElements.content.value,
       tag: formElements.tag.value,
@@ -41,19 +42,31 @@ const NoteForm: React.FC<Props> = ({ onSubmit }) => {
           type="text"
           id="title"
           name="title"
+          defaultValue={note?.title}
           placeholder="Your note title"
         />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="tag">Tag</label>
-        <input type="text" id="tag" name="tag" placeholder="Your note tag" />
+        <input
+          type="text"
+          id="tag"
+          name="tag"
+          defaultValue={note?.tag}
+          placeholder="Your note tag"
+        />
       </div>
       <div className={styles.formGroup}>
         <label htmlFor="content">Content</label>
-        <textarea id="content" name="content" placeholder="Your note content" />
+        <textarea
+          id="content"
+          name="content"
+          defaultValue={note?.content}
+          placeholder="Your note content"
+        />
       </div>
       <div className={styles.formGroup}>
-        <button type="submit">Add</button>
+        <button type="submit">Save & Exit</button>
       </div>
     </form>
   );

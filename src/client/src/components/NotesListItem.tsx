@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 
-import { NoteDto } from '../lib/api/dtos';
+import { QueryNoteDto } from '../lib/api/dtos';
 import dateFormatter from '../lib/misc/date-formatter';
 
 import styles from './NotesListItem.module.css';
 
 type Props = {
-  note: NoteDto;
+  note: QueryNoteDto;
 };
 
 const NotesListItem: React.FC<Props> = ({ note }) => {

@@ -3,6 +3,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 
 import RootLayout from './layouts/Root';
 import NotesLayout from './layouts/Notes';
+import ProfileLayout from './layouts/Profile';
 
 import ErrorPage from './pages/Error';
 import HomePage from './pages/Home';
@@ -12,6 +13,7 @@ import NotesPage from './pages/Notes';
 import NewNotePage from './pages/NewNote';
 import NoteDetailsPage from './pages/NoteDetails';
 import EditNotePage from './pages/EditNote';
+import ProfilePage from './pages/Profile';
 
 import queryClient from './lib/api/query-client';
 import rootLoader, { ROOT_LOADER_ID } from './lib/misc/root-loader';
@@ -51,6 +53,17 @@ const router = createBrowserRouter([
           {
             path: ':id/edit',
             element: <EditNotePage />,
+          },
+        ],
+      },
+      {
+        path: 'profile',
+        element: <ProfileLayout />,
+        loader: redirectAuthGuard,
+        children: [
+          {
+            index: true,
+            element: <ProfilePage />,
           },
         ],
       },

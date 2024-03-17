@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import SigninForm from '../components/SigninForm';
@@ -18,10 +19,12 @@ export default function Signin() {
     error,
   } = useSignin();
 
-  if (isSuccess && token) {
-    setToken(token);
-    navigate('/home');
-  }
+  useEffect(() => {
+    if (isSuccess && token) {
+      setToken(token);
+      navigate('/home');
+    }
+  }, [navigate, isSuccess, token]);
 
   return (
     <PageContent title="Signin">

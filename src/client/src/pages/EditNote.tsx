@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import NoteForm from '../components/NoteForm';
@@ -35,10 +36,12 @@ export default function EditNote() {
     updateNote({ id, dto });
   };
 
-  if (isSuccessUpdate) {
-    invalidateLoadNotes();
-    navigate('/notes');
-  }
+  useEffect(() => {
+    if (isSuccessUpdate) {
+      invalidateLoadNotes();
+      navigate('/notes');
+    }
+  }, [navigate, isSuccessUpdate]);
 
   let content;
 

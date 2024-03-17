@@ -1,7 +1,8 @@
 import PageContent from '../components/PageContent';
 
-import ErrorBlock from '../components/ErrorBlock';
 import LoadingIndicator from '../components/LoadingIndicator';
+import ErrorBlock from '../components/ErrorBlock';
+import ProfileOverview from '../components/ProfileOverview';
 import { useLoadUserProfile } from '../lib/api/query-client';
 
 function Profile() {
@@ -18,13 +19,7 @@ function Profile() {
   }
 
   if (profile) {
-    content = (
-      <article>
-        <p>Hello {profile.name}!</p>
-        <p>Email: {profile.email}</p>
-        <p>Status: {profile.status}</p>
-      </article>
-    );
+    content = <ProfileOverview profile={profile} />;
   }
 
   return <PageContent title="Profile">{content}</PageContent>;

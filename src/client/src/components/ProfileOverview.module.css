@@ -1,0 +1,50 @@
+.container > header {
+  width: 40rem;
+  margin: 0.5rem auto;
+}
+
+.container > header > nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.container > header > nav > a {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.25rem;
+}
+
+.container > article {
+  width: 40rem;
+  margin: auto;
+  padding: 1.25rem;
+  background-color: #343b3f;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.container > article > div {
+  margin-bottom: 1rem;
+}
+
+.container > article > div:last-of-type {
+  margin-bottom: 0;
+}
+
+.container > article > div > h1 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.container > article > div > p {
+  font-size: 1rem;
+}

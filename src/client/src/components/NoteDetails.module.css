@@ -11,15 +11,17 @@
 
 .noteDetails > header button,
 .noteDetails > header a {
-  font: inherit;
   cursor: pointer;
   border: none;
   background-color: transparent;
   color: inherit;
-  border-radius: 4px;
   font-weight: bold;
-  text-decoration: none;
   padding: 0.25rem;
+}
+
+.noteDetails > header button:hover,
+.noteDetails > header a:hover {
+  color: var(--active-color);
 }
 
 .noteDetails > article {

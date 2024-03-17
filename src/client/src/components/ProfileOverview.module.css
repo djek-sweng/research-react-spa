@@ -6,19 +6,19 @@
 .container > header > nav {
   display: flex;
   justify-content: flex-end;
-  gap: 1rem;
 }
 
 .container > header > nav > a {
-  font: inherit;
   cursor: pointer;
   border: none;
   background-color: transparent;
   color: inherit;
-  border-radius: 4px;
   font-weight: bold;
-  text-decoration: none;
   padding: 0.25rem;
+}
+
+.container > header > nav > a:hover {
+  color: var(--active-color);
 }
 
 .container > article {

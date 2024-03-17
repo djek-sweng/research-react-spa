@@ -2,10 +2,20 @@ import PageContent from '../components/PageContent';
 import ProfileForm from '../components/ProfileForm';
 import ErrorBlock from '../components/ErrorBlock';
 import LoadingIndicator from '../components/LoadingIndicator';
-import { useLoadUserProfile } from '../lib/api/query-client';
+import {
+  useLoadUserProfile,
+  useUpdateUserProfile,
+} from '../lib/api/query-client';
+import { MutateProfileDto } from '../lib/api/dtos';
 
 function ProfilePage() {
   const { data: profile, isLoading, error, isError } = useLoadUserProfile();
+
+  const { mutate: updateProfile } = useUpdateUserProfile();
+
+  const handleUpdateProfile = (dto: MutateProfileDto) => {
+    updateProfile(dto);
+  };
 
   let content;
 
@@ -18,7 +28,7 @@ function ProfilePage() {
   }
 
   if (profile) {
-    content = <ProfileForm profile={profile} onSubmit={() => {}} />;
+    content = <ProfileForm profile={profile} onSubmit={handleUpdateProfile} />;
   }
 
   return <PageContent title="User Profile">{content}</PageContent>;

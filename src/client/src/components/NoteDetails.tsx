@@ -25,12 +25,12 @@ const NoteDetails: React.FC<Props> = ({ note, onDelete }) => {
           <p>{note.title}</p>
         </div>
         <div className={styles.noteDetailsGroup}>
-          <h1>Content</h1>
-          <p>{note.content}</p>
-        </div>
-        <div className={styles.noteDetailsGroup}>
           <h1>Tag</h1>
           <p>{note.tag}</p>
+        </div>{' '}
+        <div className={styles.noteDetailsGroup}>
+          <h1>Content</h1>
+          <p>{note.content}</p>
         </div>
         <div className={styles.noteDetailsGroup}>
           <h1>Updated</h1>

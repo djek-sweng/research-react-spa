@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import NoteOverview from '../components/NoteOverview';
+import NoteDetails from '../components/NoteDetails';
 import PageContent from './../components/PageContent';
 import ErrorBlock from '../components/ErrorBlock';
 import LoadingIndicator from '../components/LoadingIndicator';
@@ -40,8 +40,8 @@ export default function Note() {
   }
 
   if (note) {
-    content = <NoteOverview note={note} onDelete={handleDelete} />;
+    content = <NoteDetails note={note} onDelete={handleDelete} />;
   }
 
-  return <PageContent title="Note">{content}</PageContent>;
+  return <PageContent title="Note Details">{content}</PageContent>;
 }

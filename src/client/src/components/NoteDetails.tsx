@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 
 import { QueryNoteDto } from '../lib/api/dtos';
 
-import styles from './NoteOverview.module.css';
+import styles from './NoteDetails.module.css';
 
 type Props = { note: QueryNoteDto; onDelete: (id: number) => void };
 
-const NoteOverview: React.FC<Props> = ({ note, onDelete }) => {
+const NoteDetails: React.FC<Props> = ({ note, onDelete }) => {
   return (
     <section className={styles.noteDetails}>
       <header>
@@ -33,4 +33,4 @@ const NoteOverview: React.FC<Props> = ({ note, onDelete }) => {
   );
 };
 
-export default NoteOverview;
+export default NoteDetails;

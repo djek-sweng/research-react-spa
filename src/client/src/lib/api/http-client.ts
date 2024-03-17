@@ -5,6 +5,7 @@ import {
   TokenDto,
   MutateNoteDto,
   QueryNoteDto,
+  QueryProfileDto,
 } from './dtos';
 import { getBearer } from '../misc/auth';
 
@@ -127,6 +128,25 @@ export async function deleteNoteById(id: string): Promise<QueryNoteDto> {
 
   if (!response.ok) {
     throw new HttpClientError(response, `Delete note failed! ${data.message}`);
+  }
+
+  return data;
+}
+
+export async function loadUserProfile(): Promise<QueryProfileDto> {
+  const response = await fetch(`${_BASE_URL}/users/profile`, {
+    headers: {
+      Authorization: getBearer(),
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new HttpClientError(
+      response,
+      `Load user profile failed! ${data.message}`,
+    );
   }
 
   return data;

@@ -1,14 +1,6 @@
 import { QueryClient, useMutation, useQuery } from '@tanstack/react-query';
 
-import {
-  signup,
-  signin,
-  loadNotes,
-  loadNoteById,
-  createNote,
-  updateNoteById,
-  deleteNoteById,
-} from './http-client';
+import * as httpClient from './http-client';
 
 const STALE_TIME = 5_000;
 const GC_TIME = 2 * STALE_TIME;
@@ -18,22 +10,23 @@ const queryClient = new QueryClient();
 export default queryClient;
 
 export const QUERY_KEY_NOTES = ['notes'];
+export const QUERY_KEY_USER_PROFILE = ['user', 'profile'];
 
 export function useSignup() {
   return useMutation({
-    mutationFn: signup,
+    mutationFn: httpClient.signup,
   });
 }
 
 export function useSignin() {
   return useMutation({
-    mutationFn: signin,
+    mutationFn: httpClient.signin,
   });
 }
 
 export function useLoadNotes() {
   return useQuery({
-    queryFn: () => loadNotes(),
+    queryFn: httpClient.loadNotes,
     queryKey: QUERY_KEY_NOTES,
     staleTime: STALE_TIME,
     gcTime: GC_TIME,
@@ -49,7 +42,7 @@ export function invalidateLoadNotes() {
 
 export function useLoadNoteById(id: string) {
   return useQuery({
-    queryFn: () => loadNoteById(id),
+    queryFn: () => httpClient.loadNoteById(id),
     queryKey: ['notes', id],
     staleTime: STALE_TIME,
     gcTime: GC_TIME,
@@ -58,18 +51,27 @@ export function useLoadNoteById(id: string) {
 
 export function useCreateNote() {
   return useMutation({
-    mutationFn: createNote,
+    mutationFn: httpClient.createNote,
   });
 }
 
 export function useUpdateNoteById() {
   return useMutation({
-    mutationFn: updateNoteById,
+    mutationFn: httpClient.updateNoteById,
   });
 }
 
 export function useDeleteNoteById() {
   return useMutation({
-    mutationFn: deleteNoteById,
+    mutationFn: httpClient.deleteNoteById,
+  });
+}
+
+export function useLoadUserProfile() {
+  return useQuery({
+    queryFn: httpClient.loadUserProfile,
+    queryKey: QUERY_KEY_NOTES,
+    staleTime: STALE_TIME,
+    gcTime: GC_TIME,
   });
 }

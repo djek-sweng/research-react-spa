@@ -23,7 +23,6 @@ const NoteForm: React.FC<Props> = ({ note, onSubmit }) => {
     const formElements = event.currentTarget.elements;
 
     const dto = {
-      id: note?.id,
       title: formElements.title.value,
       content: formElements.content.value,
       tag: formElements.tag.value,

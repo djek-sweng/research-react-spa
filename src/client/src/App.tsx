@@ -65,6 +65,10 @@ const router = createBrowserRouter([
             index: true,
             element: <ProfilePage />,
           },
+          {
+            path: 'update',
+            element: <ProfilePage />,
+          },
         ],
       },
     ],

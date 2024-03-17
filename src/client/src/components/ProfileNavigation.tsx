@@ -7,10 +7,10 @@ const ProfileNavigation = () => {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li>
-          <NavLink to="/#">#1</NavLink>
+          <NavLink to="/profile">Profile</NavLink>
         </li>
         <li>
-          <NavLink to="/#">#2</NavLink>
+          <NavLink to="/profile/update">Update Profile</NavLink>
         </li>
       </ul>
     </nav>

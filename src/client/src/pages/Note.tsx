@@ -11,7 +11,7 @@ import {
   useDeleteNoteById,
 } from '../lib/api/query-client';
 
-export default function NoteDetails() {
+export default function Note() {
   const navigate = useNavigate();
 
   const id = useParamsId();
@@ -43,5 +43,5 @@ export default function NoteDetails() {
     content = <NoteOverview note={note} onDelete={handleDelete} />;
   }
 
-  return <PageContent title="Note Details">{content}</PageContent>;
+  return <PageContent title="Note">{content}</PageContent>;
 }

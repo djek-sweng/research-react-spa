@@ -21,7 +21,7 @@ function NotesPage() {
     content = <NotesList notes={notes} />;
   }
 
-  return <PageContent title="All Notes">{content}</PageContent>;
+  return <PageContent title="Notes">{content}</PageContent>;
 }
 
 export default NotesPage;

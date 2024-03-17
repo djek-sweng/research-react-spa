@@ -11,7 +11,7 @@ import SignupPage from './pages/Signup';
 import SigninPage from './pages/Signin';
 import NotesPage from './pages/Notes';
 import NewNotePage from './pages/NewNote';
-import NoteDetailsPage from './pages/NoteDetails';
+import NotePage from './pages/Note';
 import EditNotePage from './pages/EditNote';
 import ProfilePage from './pages/Profile';
 import EditProfilePage from './pages/EditProfile';
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
           },
           {
             path: ':id',
-            element: <NoteDetailsPage />,
+            element: <NotePage />,
           },
           {
             path: ':id/edit',

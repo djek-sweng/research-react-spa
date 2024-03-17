@@ -10,7 +10,7 @@ const ProfileNavigation = () => {
           <NavLink to="/profile">Profile</NavLink>
         </li>
         <li>
-          <NavLink to="/profile/update">Update Profile</NavLink>
+          <NavLink to="/profile/edit">Edit Profile</NavLink>
         </li>
       </ul>
     </nav>

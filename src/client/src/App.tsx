@@ -14,6 +14,7 @@ import NewNotePage from './pages/NewNote';
 import NoteDetailsPage from './pages/NoteDetails';
 import EditNotePage from './pages/EditNote';
 import ProfilePage from './pages/Profile';
+import EditProfilePage from './pages/EditProfile';
 
 import queryClient from './lib/api/query-client';
 import rootLoader, { ROOT_LOADER_ID } from './lib/misc/root-loader';
@@ -66,8 +67,8 @@ const router = createBrowserRouter([
             element: <ProfilePage />,
           },
           {
-            path: 'update',
-            element: <ProfilePage />,
+            path: 'edit',
+            element: <EditProfilePage />,
           },
         ],
       },

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import PageContent from './../components/PageContent';
@@ -19,12 +18,10 @@ export default function Signup() {
     error,
   } = useSignup();
 
-  useEffect(() => {
-    if (isSuccess && token) {
-      setToken(token);
-      navigate('/home');
-    }
-  }, [navigate, isSuccess, token]);
+  if (isSuccess && token) {
+    setToken(token);
+    navigate('/home');
+  }
 
   return (
     <PageContent title="Signup">

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import PageContent from '../components/PageContent';
@@ -24,12 +23,10 @@ function EditProfile() {
     updateProfile(dto);
   };
 
-  useEffect(() => {
-    if (isSuccessUpdate) {
-      invalidateLoadUserProfile();
-      navigate('/profile');
-    }
-  }, [navigate, isSuccessUpdate]);
+  if (isSuccessUpdate) {
+    invalidateLoadUserProfile();
+    navigate('/profile');
+  }
 
   let content;
 

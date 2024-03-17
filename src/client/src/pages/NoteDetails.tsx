@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import NoteOverview from '../components/NoteOverview';
@@ -25,12 +24,10 @@ export default function NoteDetails() {
     deleteNote(id);
   };
 
-  useEffect(() => {
-    if (isSuccess) {
-      invalidateLoadNotes();
-      navigate('/notes');
-    }
-  }, [navigate, isSuccess]);
+  if (isSuccess) {
+    invalidateLoadNotes();
+    navigate('/notes');
+  }
 
   let content = <p>Please create notes.</p>;
 

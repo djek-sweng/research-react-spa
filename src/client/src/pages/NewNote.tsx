@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import NoteForm from '../components/NoteForm';
@@ -11,12 +10,10 @@ export default function NewNote() {
 
   const { mutate: createNote, isSuccess, isError, error } = useCreateNote();
 
-  useEffect(() => {
-    if (isSuccess) {
-      invalidateLoadNotes();
-      navigate('/notes');
-    }
-  }, [navigate, isSuccess]);
+  if (isSuccess) {
+    invalidateLoadNotes();
+    navigate('/notes');
+  }
 
   return (
     <PageContent title="New Note">

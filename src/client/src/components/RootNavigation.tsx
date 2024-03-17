@@ -32,11 +32,16 @@ const RootNavigation = () => {
             </>
           )}
           {isAuth && (
-            <li>
-              <Form action="/signout" method="post">
-                <button>Signout</button>
-              </Form>
-            </li>
+            <>
+              <li>
+                <NavLink to="/profile">Profile</NavLink>
+              </li>
+              <li>
+                <Form action="/signout" method="post">
+                  <button>Signout</button>
+                </Form>
+              </li>
+            </>
           )}
         </ul>
       </nav>

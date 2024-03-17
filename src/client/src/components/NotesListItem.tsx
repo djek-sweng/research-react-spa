@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 import { QueryNoteDto } from '../lib/api/dtos';
-import dateFormatter from '../lib/misc/date-formatter';
 
 import styles from './NotesListItem.module.css';
 
@@ -10,20 +9,15 @@ type Props = {
 };
 
 const NotesListItem: React.FC<Props> = ({ note }) => {
-  const createdAt = dateFormatter(note.createdAt);
-  const updatedAt = dateFormatter(note.updatedAt);
-
   return (
     <li>
       <article className={styles.card}>
         <div>
           <h1 className={styles.title}>{note.title}</h1>
-          <p className={styles.tag}>{note.tag}</p>
           <p className={styles.content}>{note.content}</p>
-          <p className={styles.date}>{createdAt}</p>
-          <p className={styles.date}>{updatedAt}</p>
+          <p className={styles.tag}>{note.tag}</p>
         </div>
-        <div className={`btn ${styles.button}`}>
+        <div className={styles.button}>
           <Link to={`/notes/${note.id}`}>View Details</Link>
         </div>
       </article>

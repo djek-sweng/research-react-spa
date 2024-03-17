@@ -76,6 +76,13 @@ export function useLoadUserProfile() {
   });
 }
 
+export function invalidateLoadUserProfile() {
+  return queryClient.invalidateQueries({
+    queryKey: QUERY_KEY_USER_PROFILE,
+    exact: true,
+  });
+}
+
 export function useUpdateUserProfile() {
   return useMutation({
     mutationFn: httpClient.updateUserProfile,

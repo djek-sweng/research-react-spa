@@ -6,6 +6,7 @@ import {
   MutateNoteDto,
   QueryNoteDto,
   QueryProfileDto,
+  MutateProfileDto,
 } from './dtos';
 import { getBearer } from '../misc/auth';
 
@@ -146,6 +147,30 @@ export async function loadUserProfile(): Promise<QueryProfileDto> {
     throw new HttpClientError(
       response,
       `Load user profile failed! ${data.message}`,
+    );
+  }
+
+  return data;
+}
+
+export async function updateUserProfile(
+  dto: MutateProfileDto,
+): Promise<QueryProfileDto> {
+  const response = await fetch(`${_BASE_URL}/users/profile`, {
+    method: 'PATCH',
+    headers: {
+      Authorization: getBearer(),
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(dto),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new HttpClientError(
+      response,
+      `Update user profile failed! ${data.message}`,
     );
   }
 

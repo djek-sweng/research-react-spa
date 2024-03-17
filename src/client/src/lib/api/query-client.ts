@@ -70,8 +70,14 @@ export function useDeleteNoteById() {
 export function useLoadUserProfile() {
   return useQuery({
     queryFn: httpClient.loadUserProfile,
-    queryKey: QUERY_KEY_NOTES,
+    queryKey: QUERY_KEY_USER_PROFILE,
     staleTime: STALE_TIME,
     gcTime: GC_TIME,
+  });
+}
+
+export function useUpdateUserProfile() {
+  return useMutation({
+    mutationFn: httpClient.updateUserProfile,
   });
 }

@@ -4,7 +4,7 @@ import { useSubmit, Outlet } from 'react-router-dom';
 import RootNavigation from './../components/RootNavigation';
 import { useRootLoaderData } from '../lib/misc/root-loader';
 
-export default function Root() {
+const Root = () => {
   const { isAuth, tokenExpiration } = useRootLoaderData();
   const submit = useSubmit();
 
@@ -39,4 +39,6 @@ export default function Root() {
       </main>
     </>
   );
-}
+};
+
+export default Root;

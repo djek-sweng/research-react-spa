@@ -15,8 +15,9 @@ Frontend (client):
 - [CSS Modules](https://vitejs.dev/guide/features.html#css-modules)
 - [CSS Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
 - Authorization Bearer (JWT)
-- Signup/Signin Forms
 - Auto Signout
+- Forms (Signup/Signin, Create and Edit)
+- React Hooks
 
 Backend (server):
 

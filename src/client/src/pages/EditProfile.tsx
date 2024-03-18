@@ -11,7 +11,7 @@ import {
 } from '../lib/api/query-client';
 import { MutateProfileDto } from '../lib/api/dtos';
 
-function EditProfile() {
+const EditProfile = () => {
   const navigate = useNavigate();
 
   const { data: profile, isLoading, error, isError } = useLoadUserProfile();
@@ -43,6 +43,6 @@ function EditProfile() {
   }
 
   return <PageContent title="Edit Profile">{content}</PageContent>;
-}
+};
 
 export default EditProfile;

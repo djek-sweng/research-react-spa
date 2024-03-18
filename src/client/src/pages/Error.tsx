@@ -4,7 +4,7 @@ import PageContent from './../components/PageContent';
 
 import styles from './Error.module.css';
 
-export default function Error() {
+const Error = () => {
   const error = useRouteError() as Error;
 
   const title = 'An Error Occured';
@@ -23,4 +23,6 @@ export default function Error() {
       </div>
     </PageContent>
   );
-}
+};
+
+export default Error;

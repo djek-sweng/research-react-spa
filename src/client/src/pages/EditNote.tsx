@@ -12,7 +12,7 @@ import {
 } from '../lib/api/query-client';
 import { MutateNoteDto } from '../lib/api/dtos';
 
-export default function EditNote() {
+const EditNote = () => {
   const navigate = useNavigate();
 
   const id = useParamsId();
@@ -61,4 +61,6 @@ export default function EditNote() {
       )}
     </PageContent>
   );
-}
+};
+
+export default EditNote;

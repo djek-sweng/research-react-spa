@@ -5,7 +5,7 @@ import PageContent from './../components/PageContent';
 import ErrorBlock from '../components/ErrorBlock';
 import { useCreateNote, invalidateLoadNotes } from '../lib/api/query-client';
 
-export default function NewNote() {
+const NewNote = () => {
   const navigate = useNavigate();
 
   const { mutate: createNote, isSuccess, isError, error } = useCreateNote();
@@ -21,4 +21,6 @@ export default function NewNote() {
       {isError && <ErrorBlock title="Notes Error" message={error.message} />}
     </PageContent>
   );
-}
+};
+
+export default NewNote;

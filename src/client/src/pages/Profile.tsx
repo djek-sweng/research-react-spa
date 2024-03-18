@@ -5,7 +5,7 @@ import ErrorBlock from '../components/ErrorBlock';
 import ProfileOverview from '../components/ProfileOverview';
 import { useLoadUserProfile } from '../lib/api/query-client';
 
-function Profile() {
+const Profile = () => {
   const { data: profile, isLoading, error, isError } = useLoadUserProfile();
 
   let content;
@@ -23,6 +23,6 @@ function Profile() {
   }
 
   return <PageContent title="Profile">{content}</PageContent>;
-}
+};
 
 export default Profile;

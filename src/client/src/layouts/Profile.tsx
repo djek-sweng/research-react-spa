@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 import ProfileNavigation from '../components/ProfileNavigation';
 
-export default function Profile() {
+const Profile = () => {
   return (
     <>
       <ProfileNavigation />
@@ -11,4 +11,6 @@ export default function Profile() {
       </main>
     </>
   );
-}
+};
+
+export default Profile;

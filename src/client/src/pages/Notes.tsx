@@ -4,7 +4,7 @@ import ErrorBlock from '../components/ErrorBlock';
 import LoadingIndicator from '../components/LoadingIndicator';
 import { useLoadNotes } from '../lib/api/query-client';
 
-function NotesPage() {
+const NotesPage = () => {
   const { data: notes, isLoading, error, isError } = useLoadNotes();
 
   let content = <p>Please create notes.</p>;
@@ -22,6 +22,6 @@ function NotesPage() {
   }
 
   return <PageContent title="Notes">{content}</PageContent>;
-}
+};
 
 export default NotesPage;

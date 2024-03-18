@@ -7,7 +7,7 @@ import ErrorBlock from '../components/ErrorBlock';
 import { useSignin } from '../lib/api/query-client';
 import { setToken } from '../lib/misc/auth';
 
-export default function Signin() {
+const Signin = () => {
   const navigate = useNavigate();
 
   const {
@@ -29,4 +29,6 @@ export default function Signin() {
       {isError && <ErrorBlock title="Signin Error" message={error.message} />}
     </PageContent>
   );
-}
+};
+
+export default Signin;

@@ -1,5 +1,10 @@
+.container > header,
+.container > article {
+  width: 80%;
+  max-width: 40rem;
+}
+
 .container > header {
-  width: 40rem;
   margin: 0.5rem auto;
 }
 
@@ -22,7 +27,6 @@
 }
 
 .container > article {
-  width: 40rem;
   margin: auto;
   padding: 1.25rem;
   background-color: #343b3f;

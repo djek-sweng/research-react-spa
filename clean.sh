@@ -2,5 +2,4 @@
 
 find . \
   -iname "node_modules" \
-  -o -iname "dist" \
-  -o -iname "coverage" | xargs rm -rf
+  -o -iname "dist" | xargs rm -rf

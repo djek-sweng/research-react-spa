@@ -1,5 +1,10 @@
+.noteDetails > header,
+.noteDetails > article {
+  width: 80%;
+  max-width: 40rem;
+}
+
 .noteDetails > header {
-  width: 40rem;
   margin: 0.5rem auto;
 }
 
@@ -25,7 +30,6 @@
 }
 
 .noteDetails > article {
-  width: 40rem;
   margin: auto;
   padding: 1.25rem;
   background-color: #343b3f;

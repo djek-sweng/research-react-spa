@@ -25,7 +25,7 @@ const Home = () => {
             alt="Vite Logo"
           />
         </a>
-        <a href="https://react.dev" target="_blank">
+        <a href="https://tanstack.com/query/latest" target="_blank">
           <img
             src={reactQueryLogo}
             className={`${styles.logo} ${styles.reactQueryLogo}`}

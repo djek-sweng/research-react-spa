@@ -1,0 +1,9 @@
+.message {
+  color: var(--error-color);
+  font-style: italic;
+}
+
+.link {
+  font-weight: bold;
+  margin-top: 1rem;
+}

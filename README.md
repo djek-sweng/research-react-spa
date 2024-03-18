@@ -7,17 +7,17 @@ In this repository I researched React (with TypeScript) for SPA frontend develop
 Frontend (client):
 
 - [React](https://react.dev/)
-- [ReactRouter](https://reactrouter.com/en/main)
+- [React Hooks](https://react.dev/reference/react/hooks)
+- [React Router](https://reactrouter.com/en/main)
 - [TanStack Query](https://tanstack.com/query/latest) (auto-managed API queries and mutations)
 - [JSX](https://react.dev/learn/writing-markup-with-jsx)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/) (local development server)
-- [CSS Modules](https://vitejs.dev/guide/features.html#css-modules)
-- [CSS Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
 - Authorization Bearer (JWT)
 - Auto Signout
 - Forms (Signup/Signin, Create and Edit)
-- React Hooks
+- [CSS Modules](https://vitejs.dev/guide/features.html#css-modules)
+- [CSS Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
 
 Backend (server):
 
@@ -62,21 +62,15 @@ npm run db:restart
 
 # run api server
 npm run start
-```
 
-## PostgreSQL inside Docker
-
-```sh
-cd ./src/server
-
-# docker compose up/down
-npm run db:up
-npm run db:down
-
-npm run db:restart
+# run database server up/down (optional)
+# npm run db:up
+# npm run db:down
 ```
 
 ## Prisma Studio (Database Administration)
+
+Run Prisma Studio:
 
 ```sh
 cd ./src/server
@@ -107,28 +101,28 @@ Open Swagger web UI: [Swagger](http://localhost:5000/swagger/)
 
 ```sh
 nest --version
-  xx
+  10.3.0
 
 node --version
-  xx
+  v20.11.0
 
 npm --version
-  xx
+  10.4.0
 
 nvm --version
-  xx
+  0.39.7
 
 docker --version
-  xx
+  Docker version 25.0.4, build 1a576c5
 
 code --version
-  xx
+  1.87.2
 
   Useful extensions:
-    archsense.architecture-view-nestjs
-    prisma.prisma
-    ms-azuretools.vscode-docker
+    dbaeumer.vscode-eslint
     esbenp.prettier-vscode
     editorconfig.editorconfig
+    ms-azuretools.vscode-docker
+    prisma.prisma
     pkief.material-icon-theme
 ```

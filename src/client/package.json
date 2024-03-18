@@ -1,7 +1,9 @@
 {
-  "name": "react",
-  "private": true,
-  "version": "0.0.0",
+  "name": "react-spa",
+  "version": "1.0.0",
+  "description": "React SPA (Authorization Bearer, API)",
+  "author": "djek-sweng",
+  "license": "ISC",
   "type": "module",
   "scripts": {
     "dev": "vite",
